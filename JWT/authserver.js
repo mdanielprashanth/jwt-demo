@@ -64,6 +64,10 @@ function generateToken(user){
     return jwt.sign(user, process.env.ACCESS_TOKEN, {expiresIn:'30s'})
 }
 
-app.listen(port, ()=>{
+app.get('/', (req, res) => {
+    res.send('Hello, Docker!');
+});
+
+app.listen(port, '0.0.0.0', ()=>{
     console.log(`Server running on port ${port}`);
 })

@@ -1,0 +1,12 @@
+{
+    "apps": [
+      {
+        "name": "server1",
+        "script": "index.js"
+      },
+      {
+        "name": "server2",
+        "script": "authserver.js"
+      }
+    ]
+  }

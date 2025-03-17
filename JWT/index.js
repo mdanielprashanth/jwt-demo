@@ -2,10 +2,20 @@ require('dotenv').config()
 
 const express = require('express')
 const app = new express()
+const cors = require("cors");
 const jwt = require('jsonwebtoken');
 
-
 app.use(express.json())
+
+
+// ✅ Allow frontend to access backend
+app.use(cors({
+    origin: "http://localhost:5173", // Allow only your frontend
+    methods: "GET,POST", // Allowed methods
+    allowedHeaders: "Content-Type,Authorization"
+}));
+
+
 
 const port = 8000;
 

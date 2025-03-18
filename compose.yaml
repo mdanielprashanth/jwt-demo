@@ -1,0 +1,18 @@
+services:
+  backend:
+    build:
+      context: ./JWT  # Path to the Node.js app's Dockerfile
+    ports:
+      - "8000:8000"  # Map port 8000
+      - "9000:9000"  # Map port 9000
+    environment:
+      - ACCESS_TOKEN=1be14c2141aff8cee4b4cb8ff97497fdbdc8b1052781a66dda92a87951b6bcd4507b22c2d134bcfba12fce2dbdd87acd251f5d169608b200fc4222d3f6289267
+      - REFRESH_TOKEN=b4a10a0d25262d8788378cb96ee5b7244371130180fe6a7e9f3d95561c8d912be3e7b4df9cff2c9250b0ae49d548ec7ff5cb3c47434f8f5d2da525baeb80e319
+
+  frontend:
+    build:
+      context: ./AUTH-REACT  # Path to the React app's Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
